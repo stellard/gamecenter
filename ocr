@@ -1,0 +1,12 @@
+Make sure the input image is a grayscale .tif and fairly large. ~500x150 was too small, while ~2000*500 worked very well.
+
+convert input.png -resize 400% -type Grayscale input.tif
+OCR it. The default language is English. Language codes are 3 chars per man tesseract.
+
+tesseract -l eng -psm 7 input.tif output
+This creates output.txt.
+
+
+
+
+scripts/run "mousewarp 255 565" && scripts/run "mouseclick 1" && scripts/run "wait 1"  && scripts/run "mousedrag 400 565" && scripts/run "mouseclick 1"
